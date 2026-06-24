@@ -1,0 +1,26 @@
+object: laptop
+description: >
+  Laptop damage claims. Screen/keyboard/trackpad surfaces, plus structural
+  parts (hinge, lid, corner, body, base, port).
+
+parts: [screen, keyboard, trackpad, hinge, lid, corner, port, base, body, unknown]
+
+issue_families:
+  - name: screen_keyboard_trackpad
+    issues: [crack, glass_shatter, stain, missing_part, scratch]
+    severity_default: medium
+    evidence: The screen, keyboard, or trackpad area is visible clearly enough to inspect cracks, stains, missing keys, or surface damage.
+  - name: body_hinge_port
+    issues: [dent, broken_part, crack]
+    severity_default: medium
+    evidence: The hinge, lid, corner, body, base, or port is visible with enough context to identify the relevant laptop part.
+
+risk_focus: [claim_mismatch, wrong_object_part, damage_not_visible, non_original_image]
+
+decision_hints: |
+  - A cracked LCD/screen is 'crack' unless the panel is shattered into pieces ('glass_shatter').
+  - "Won't open smoothly" / stiff lid points to the hinge (object_part=hinge), often broken_part.
+  - Liquid/spill near keyboard with no visible mark on the relevant part may be
+    damage_not_visible; only 'water_damage'/'stain' if it is actually visible.
+
+tools: null

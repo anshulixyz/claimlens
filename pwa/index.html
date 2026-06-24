@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#FFFFFF" />
+  <meta name="color-scheme" content="light" />
+  <meta name="description" content="ClaimLens is a multi-modal evidence-review agent: it reads the photo, the chat and the customer's history, then returns an auditable accept / decline / needs-info decision and routes it into your support stack." />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="icon.svg" type="image/svg+xml" />
+  <title>ClaimLens: decide damage claims on the evidence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- soft light wash behind the hero (faint indigo / emerald tints on white) -->
+  <div class="sky" aria-hidden="true">
+    <div class="orb o1"></div><div class="orb o2"></div>
+    <div class="orb o3"></div>
+  </div>
+
+  <div id="root" class="booting">Loading ClaimLens…</div>
+
+  <!-- React + htm vendored locally (no CDN). The messenger calls the local
+       FastAPI backend (/api/review) which runs the real Gemini+Claude pipeline. -->
+  <script src="vendor/react.production.min.js"></script>
+  <script src="vendor/react-dom.production.min.js"></script>
+  <script src="vendor/htm.umd.js"></script>
+  <!-- App split by feature; classic scripts share top-level const bindings, so
+       load order matters: base (globals/icons/art/fx) → messenger → landing → entry. -->
+  <script src="ui-base.js"></script>
+  <script src="ui-messenger.js"></script>
+  <script src="ui-landing.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

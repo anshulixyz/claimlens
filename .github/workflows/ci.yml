@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt pytest ruff
+      - name: Lint (ruff)
+        run: ruff check .
+      - name: Format check (ruff format)
+        run: ruff format --check .
+      - name: Tests (hermetic — mock tier, no API keys)
+        run: pytest tests/ -q
+      - name: Validate output.csv contract (if present)
+        run: |
+          python - <<'PY'
+          import csv, os, sys
+          if not os.path.exists("output.csv"):
+              print("no output.csv; skipping contract check"); sys.exit(0)
+          from evidence_review.schema import (OUTPUT_COLUMNS, CLAIM_STATUS, ISSUE_TYPE,
+                                              OBJECT_PART, RISK_FLAGS, SEVERITY)
+          rows = list(csv.DictReader(open("output.csv")))
+          assert rows, "output.csv is empty"
+          assert list(rows[0].keys()) == OUTPUT_COLUMNS, "column set/order mismatch"
+          for i, r in enumerate(rows):
+              assert r["claim_status"] in CLAIM_STATUS, (i, r["claim_status"])
+              assert r["issue_type"] in ISSUE_TYPE, (i, r["issue_type"])
+              assert r["object_part"] in OBJECT_PART.get(r["claim_object"], {"unknown"}), (i, r["object_part"])
+              assert r["severity"] in SEVERITY, (i, r["severity"])
+              for f in r["risk_flags"].split(";"):
+                  assert f in RISK_FLAGS, (i, f)
+          print(f"output.csv contract OK ({len(rows)} rows)")
+          PY
+      - name: PWA static check
+        run: |
+          for f in pwa/ui-base.js pwa/ui-messenger.js pwa/ui-landing.js pwa/app.js; do
+            node --check "$f" && echo "$f parses"
+          done

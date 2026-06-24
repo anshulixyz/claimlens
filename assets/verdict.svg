@@ -1,0 +1,13 @@
+<svg viewBox="0 0 460 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ClaimLens verdict card">
+  <style>.d{font-family:"Plus Jakarta Sans",system-ui,sans-serif;font-weight:700}.b{font-family:Inter,system-ui,sans-serif}.m{font-family:"JetBrains Mono",ui-monospace,monospace}</style>
+  <rect width="460" height="250" rx="18" fill="#FFFFFF" stroke="#E6E9EF"/>
+  <rect width="460" height="52" rx="18" fill="#E8F6EE"/><rect y="34" width="460" height="18" fill="#E8F6EE"/>
+  <circle cx="32" cy="26" r="13" fill="#15924E"/><path d="M26 26l4 4 8-9" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="56" y="32" class="d" font-size="18" fill="#0F6E40">Accepted</text>
+  <text x="384" y="31" class="m" font-size="11" fill="#B5791C">MEDIUM</text>
+  <text x="28" y="92" class="m" font-size="10" fill="#777F8C">ISSUE</text><text x="28" y="113" class="d" font-size="17" fill="#0B0F19">dent</text>
+  <text x="240" y="92" class="m" font-size="10" fill="#777F8C">PART</text><text x="240" y="113" class="d" font-size="17" fill="#0B0F19">rear bumper</text>
+  <text x="28" y="146" class="m" font-size="10" fill="#777F8C">RISK FLAGS</text><text x="28" y="166" class="b" font-size="13" fill="#15924E">none</text>
+  <rect x="28" y="182" width="404" height="9" rx="4" fill="#F2F3F8"/><rect x="28" y="198" width="320" height="9" rx="4" fill="#F2F3F8"/>
+  <text x="28" y="230" class="b" font-style="italic" font-size="11.5" fill="#777F8C">"visible deformation on the rear bumper" — grounded in img_1 · conf 1.0</text>
+</svg>

@@ -1,0 +1,5 @@
+requirement_id,claim_object,applies_to,minimum_image_evidence
+req_all_1,all,any,"at least one clear, in-focus photo of the affected area"
+req_car_1,car,dent or scratch,a photo showing the affected panel and the damage
+req_laptop_1,laptop,crack or screen,a photo of the screen/lid showing the damage
+req_package_1,package,torn or crushed,a photo of the box showing the damaged corner/seal

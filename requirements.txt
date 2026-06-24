@@ -1,0 +1,28 @@
+# Core (pipeline runs offline/mock with just these)
+Pillow>=10.0
+numpy>=1.24
+imagehash>=4.3
+python-dotenv>=1.0
+PyYAML>=6.0          # declarative scenario packs
+
+# Optional model backends — install the one(s) you use
+anthropic>=0.39       # judge (Claude Sonnet/Opus) + optional Claude perception
+google-genai>=0.3     # cheapest perception (Gemini Flash)
+
+# Optional: richer CV signals (graceful fallback to Pillow/numpy if absent)
+opencv-python-headless>=4.8
+
+# Local server for the chat PWA (serves UI + /api/review running the real pipeline)
+fastapi>=0.110
+uvicorn>=0.29
+pydantic>=2
+httpx>=0.27          # FastAPI TestClient — HTTP-level tests for /api/* + intake
+
+# ---- Optional scenario-detector backends (tools self-disable if absent) ----
+# All permissive-licensed; see docs/SCENARIO_COVERAGE.md for the full survey.
+# easyocr            # Apache-2.0 — deterministic in-image-text (injection) cross-check
+# pytesseract        # Apache-2.0 — lightweight OCR fallback (needs `tesseract` binary)
+# c2pa-python        # MIT/Apache — cryptographic content-provenance (C2PA) verification
+# pdqhash            # MIT — robust perceptual hash (reuse/near-dup), upgrade over pHash
+# open_clip_torch    # MIT — zero-shot object-consistency check (wrong_object)
+# torch              # required by open_clip / UniversalFakeDetect adapters

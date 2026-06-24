@@ -1,0 +1,8 @@
+user_id,past_claim_count,accept_claim,manual_review_claim,rejected_claim,last_90_days_claim_count,history_flags,history_summary
+u_demo_1,0,0,0,0,0,none,synthetic demo user
+u_demo_2,1,0,0,0,0,none,synthetic demo user
+u_demo_3,2,1,0,0,0,none,synthetic demo user
+u_demo_4,3,2,0,1,0,none,synthetic demo user
+u_demo_5,4,3,0,0,0,none,synthetic demo user
+u_demo_6,5,4,0,0,1,none,synthetic demo user
+u_demo_7,6,5,0,0,1,none,synthetic demo user

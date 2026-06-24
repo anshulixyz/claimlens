@@ -1,0 +1,25 @@
+.DS_Store
+.env
+*.env
+!.env.example
+.venv/
+venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.cache/
+evidence_review/.cache/
+# generated artifacts (regenerate on your own data)
+output.csv
+evaluation/preds_*.csv
+evaluation/metrics.json
+evaluation/evaluation_report.md
+evaluation/dashboard.html
+code.zip
+
+# large media — host externally and link
+video/
+*.mp4
+*.MP4
+*.mov
+*.MOV

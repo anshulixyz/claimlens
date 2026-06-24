@@ -1,0 +1,30 @@
+object: package
+description: >
+  Delivery/package damage claims. Exterior (box, sides, corners, seal, label)
+  and contents (opened package, inner item missing/damaged).
+
+parts: [box, package_corner, package_side, seal, label, contents, item, unknown]
+
+issue_families:
+  - name: exterior
+    issues: [crushed_packaging, torn_packaging, broken_part]
+    severity_default: medium
+    evidence: The package exterior and claimed side, corner, flap, or seal is visible clearly enough to inspect packaging damage.
+  - name: label_or_stain
+    issues: [water_damage, stain]
+    severity_default: medium
+    evidence: The affected package surface or label is visible clearly enough to assess stain, water damage, or label damage.
+  - name: contents
+    issues: [missing_part, broken_part]
+    severity_default: medium
+    evidence: The opened package and relevant contents area is visible clearly enough to assess missing or damaged items.
+
+risk_focus: [damage_not_visible, claim_mismatch, cropped_or_obstructed, non_original_image]
+
+decision_hints: |
+  - Caved-in/compressed box = crushed_packaging; ripped/torn surface = torn_packaging.
+  - "Arrived opened" with the box otherwise intact and no visible tampering may be
+    'none'/damage_not_visible -> contradicted, not 'supported'.
+  - "Item not inside" needs the opened-package/contents view; if not shown -> not_enough_information.
+
+tools: null

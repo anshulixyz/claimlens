@@ -1,0 +1,5 @@
+user_id,image_paths,user_claim,claim_object,evidence_standard_met,evidence_standard_met_reason,risk_flags,issue_type,object_part,claim_status,claim_status_justification,supporting_image_ids,valid_image,severity
+u_demo_1,images/sample/case_001/img_1.jpg,There is a dent on the rear bumper.,car,true,rear bumper visible and assessable,none,dent,rear_bumper,supported,visible deformation consistent with a dent (synthetic),img_1,true,medium
+u_demo_2,images/sample/case_002/img_1.jpg,My laptop screen is cracked.,laptop,true,screen fully visible,none,crack,screen,supported,crack pattern visible on the panel (synthetic),img_1,true,high
+u_demo_3,images/sample/case_003/img_1.jpg,The package arrived crushed.,package,true,box and corners visible,none,crushed_packaging,box,supported,box shows crushing on a corner (synthetic),img_1,true,low
+u_demo_4,images/sample/case_004/img_1.jpg,There is a scratch on the door.,car,false,relevant area not clearly shown,damage_not_visible,none,door,not_enough_information,the claimed scratch is not visible in the image (synthetic),none,true,unknown

@@ -1,0 +1,29 @@
+[project]
+name = "claimlens"
+version = "0.1.0"
+description = "Multi-modal damage-claim evidence review — a human-in-the-loop agent starter."
+requires-python = ">=3.9"
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+src = ["."]
+extend-exclude = [".venv", ".cache", "pwa", "evaluation/dashboard.html"]
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "UP", "B", "C4"]
+ignore = ["E501", "B008"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["E402", "F401"]
+"main.py" = ["E402"]
+"server.py" = ["E402"]
+"evaluation/main.py" = ["E402"]
+"evaluation/dashboard.py" = ["E402"]
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

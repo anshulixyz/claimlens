@@ -1,0 +1,17 @@
+{
+  "name": "ClaimLens — Evidence Capture",
+  "short_name": "ClaimLens",
+  "description": "Camera-only, tamper-evident evidence capture and AI review for damage claims.",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F6F7FA",
+  "theme_color": "#FFFFFF",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "icon.svg", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

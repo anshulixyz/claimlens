@@ -1,0 +1,31 @@
+object: car
+description: >
+  Vehicle damage claims. Body panels, glass, lights, mirrors. Identity and
+  orientation matter when a claim depends on which car/side is shown.
+
+# Allowed parts (mirrors schema; kept here so a pack is self-describing).
+parts: [front_bumper, rear_bumper, door, hood, windshield, side_mirror,
+        headlight, taillight, fender, quarter_panel, body, unknown]
+
+issue_families:
+  - name: dent_or_scratch
+    issues: [dent, scratch]
+    severity_default: medium
+    evidence: Panel/bumper visible at an angle where surface marks or deformation can be assessed.
+  - name: glass_light_mirror
+    issues: [crack, glass_shatter, broken_part, missing_part]
+    severity_default: medium
+    evidence: The glass, light, mirror, or component is visible clearly enough to inspect cracks, breakage, or missing parts.
+
+# Risks most worth checking for this object (advisory to the judge/tools).
+risk_focus: [wrong_object, claim_mismatch, non_original_image, wrong_object_part]
+
+# Object-specific decision guidance injected into the judge context.
+decision_hints: |
+  - Cracked windshields are 'crack' unless the glass is in separate pieces/has a hole (then 'glass_shatter').
+  - Vehicle identity: if a close-up and a full view appear to be DIFFERENT cars,
+    that is an identity mismatch -> not_enough_information + wrong_object + claim_mismatch.
+  - Bumper/panel deformation = dent; surface marks only = scratch; detached/torn part = broken_part.
+
+# null => run all registered tools; or restrict to a named subset.
+tools: null
